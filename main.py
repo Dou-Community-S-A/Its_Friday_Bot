@@ -22,7 +22,7 @@ client = tweepy.Client(
     access_token_secret=access_token_secret
 )
 
-# Función para comprobar si es viernes o no, y twitearlo
+# Función para comprobar si es viernes o no y crear el tweet
 def horario_tweet():
     hoy=time.strftime("%A")
     if hoy=="Friday":
@@ -34,6 +34,7 @@ def horario_tweet():
             text="Hoy no es viernes"
         )
 
+# Funcion para mandar el tweet
 schedule.every().day.at("00:00").do(horario_tweet) # Todos los dias a las 00:00 llama a la funcion horario_tweet
 
 while True:
